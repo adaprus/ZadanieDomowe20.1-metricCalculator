@@ -29,7 +29,7 @@
     <input type="submit" value="Przelicz"><br/>
 </form>
 <h2>Przelicznik wag</h2>
-<form method="get" action="/metriccalc">
+<form method="get" action="/weightcalc">
     <input type="text" placeholder="kilogramy" name="kilograms"> <br/>
     <input type="text" placeholder="gramy" name="grams"> <br/>
     <input type="text" placeholder="miligramy" name="milligrams"><br/>

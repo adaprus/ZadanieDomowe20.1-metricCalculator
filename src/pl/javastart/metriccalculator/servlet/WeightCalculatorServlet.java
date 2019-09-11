@@ -1,8 +1,8 @@
 package pl.javastart.metriccalculator.servlet;
 
-import pl.javastart.metriccalculator.model.MetricValue;
+import pl.javastart.metriccalculator.model.WeightValue;
 import pl.javastart.metriccalculator.service.FormReadService;
-import pl.javastart.metriccalculator.service.MetricCalculatorService;
+import pl.javastart.metriccalculator.service.WeightCalculatorService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Map;
 
-@WebServlet("/metriccalc")
-public class MetricCalculatorServlet extends HttpServlet {
-    private MetricCalculatorService service = new MetricCalculatorService();
+@WebServlet("/weightcalc")
+public class WeightCalculatorServlet extends HttpServlet {
+    private WeightCalculatorService service = new WeightCalculatorService();
     private FormReadService formReadService = new FormReadService();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,7 +33,7 @@ public class MetricCalculatorServlet extends HttpServlet {
                 String[] nonEmptyParameterValues = parameterMap.get(nonEmptyParameterName);
                 String value = nonEmptyParameterValues[0];
 
-                info = nonEmptyMetricParameterInfo(nonEmptyParameterName, value);
+                info = nonEmptyWeightParameterInfo(nonEmptyParameterName, value);
             } else {
                 info = "Wpisz jedną wartość";
             }
@@ -43,30 +43,28 @@ public class MetricCalculatorServlet extends HttpServlet {
         }
     }
 
-
-
-    private String nonEmptyMetricParameterInfo(String nonEmptyParameterName, String value) {
-        MetricValue metricValue;
+    private String nonEmptyWeightParameterInfo(String nonEmptyParameterName, String value) {
+        WeightValue weightValue;
         String info = null;
 
         switch (nonEmptyParameterName) {
-            case "meters":
-                double meters = (Double.parseDouble(value));
-                metricValue = new MetricValue();
-                service.metersRecountInfo(meters, metricValue);
-                info = metricValue.toString();
+            case "kilograms":
+                double kilograms = Double.parseDouble(value);
+                weightValue = new WeightValue();
+                service.kilogramsRecountInfo(kilograms, weightValue);
+                info = weightValue.toString();
                 break;
-            case "centimeters":
-                double centimeters = (Double.parseDouble(value));
-                metricValue = new MetricValue();
-                service.centimetersRecountInfo(centimeters, metricValue);
-                info = metricValue.toString();
+            case "grams":
+                double grams = Double.parseDouble(value);
+                weightValue = new WeightValue();
+                service.gramsRecountInfo(grams, weightValue);
+                info = weightValue.toString();
                 break;
-            case "millimeters":
-                double millimeters = (Double.parseDouble(value));
-                metricValue = new MetricValue();
-                service.millimetersRecountInfo(millimeters, metricValue);
-                info = metricValue.toString();
+            case "milligrams":
+                double milligrams = Double.parseDouble(value);
+                weightValue = new WeightValue();
+                service.milligramsRecountInfo(milligrams, weightValue);
+                info = weightValue.toString();
                 break;
         }
         return info;
