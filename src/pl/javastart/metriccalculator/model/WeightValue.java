@@ -1,4 +1,4 @@
-package pl.javastart.metricCalculator.model;
+package pl.javastart.metriccalculator.model;
 
 public class WeightValue {
     private double kilograms;

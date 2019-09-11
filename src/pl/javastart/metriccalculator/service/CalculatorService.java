@@ -1,7 +1,7 @@
-package pl.javastart.metricCalculator.service;
+package pl.javastart.metriccalculator.service;
 
-import pl.javastart.metricCalculator.model.MetricValue;
-import pl.javastart.metricCalculator.model.WeightValue;
+import pl.javastart.metriccalculator.model.MetricValue;
+import pl.javastart.metriccalculator.model.WeightValue;
 
 public class CalculatorService {
     public void metersRecountInfo(double meters, MetricValue metricValue) {

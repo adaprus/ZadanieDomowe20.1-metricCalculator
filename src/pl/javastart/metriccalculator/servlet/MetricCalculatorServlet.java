@@ -1,8 +1,8 @@
-package pl.javastart.metricCalculator.servlet;
+package pl.javastart.metriccalculator.servlet;
 
-import pl.javastart.metricCalculator.model.MetricValue;
-import pl.javastart.metricCalculator.model.WeightValue;
-import pl.javastart.metricCalculator.service.CalculatorService;
+import pl.javastart.metriccalculator.model.MetricValue;
+import pl.javastart.metriccalculator.model.WeightValue;
+import pl.javastart.metriccalculator.service.CalculatorService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,9 +15,7 @@ import java.util.*;
 
 @WebServlet("/metriccalc")
 public class MetricCalculatorServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
+    private CalculatorService service = new CalculatorService();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -75,7 +73,6 @@ public class MetricCalculatorServlet extends HttpServlet {
         MetricValue metricValue;
         WeightValue weightValue;
         String info = null;
-        CalculatorService service = new CalculatorService();
 
         switch (nonEmptyParameterName) {
             case "meters":
