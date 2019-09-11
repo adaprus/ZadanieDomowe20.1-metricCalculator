@@ -9,11 +9,15 @@
 <html>
 <head>
     <title>Metric Calculator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <style>
     div {
         margin: 5px;
+    }
 
+    input {
+        margin: 5px;
     }
 </style>
 <body>
